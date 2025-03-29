@@ -7,16 +7,12 @@ export const currencyRates = (data, elem, date) => {
         const currennciesList = data
             .map(
                 (item) => `<div class="info-wrap">
-                                <div class="currency-code">${
-                                    item.CharCode
-                                }</div>
+                                <div class="currency-code">${item.CharCode}</div>
                                 <div class="currency-name">
                                     ${item.Name}
                                 </div>
-                                <div class="currency-rate">${roundingNumber(
-                                    item.Value
-                                )}</div>
-                            </div>`
+                                <div class="currency-rate">${roundingNumber(item.Value)}</div>
+                            </div>`,
             )
             .join("");
         elem.innerHTML = currennciesList;

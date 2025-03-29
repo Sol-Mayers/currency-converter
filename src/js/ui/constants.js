@@ -10,9 +10,7 @@ export const typedAmount = document.getElementById("typed-amount");
 export const currency1 = document.getElementById("currency1");
 export const currency2 = document.getElementById("currency2");
 export const rateText = document.getElementById("rate-currencies");
-export const rateTextStorage = document.getElementById(
-    "rate-storage-currencies"
-);
+export const rateTextStorage = document.getElementById("rate-storage-currencies");
 export const mainDate = document.getElementById("main-date");
 export const journalDate = document.getElementById("main-date-storage");
 export const saveRatesButton = document.querySelector(".save-rates");

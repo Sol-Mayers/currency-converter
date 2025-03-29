@@ -27,15 +27,15 @@ converter(Object.values(dataWithRoubles), [currency1, currency2]);
 currencyRates(Object.values(data), rateText, date);
 
 typedAmount.addEventListener("input", () =>
-    calcRate(dataWithRoubles, typedAmount, currency1, currency2)
+    calcRate(dataWithRoubles, typedAmount, currency1, currency2),
 );
 
 currency1.addEventListener("change", () =>
-    calcRate(dataWithRoubles, typedAmount, currency1, currency2)
+    calcRate(dataWithRoubles, typedAmount, currency1, currency2),
 );
 
 currency2.addEventListener("change", () =>
-    calcRate(dataWithRoubles, typedAmount, currency1, currency2)
+    calcRate(dataWithRoubles, typedAmount, currency1, currency2),
 );
 
 saveRatesButton.addEventListener("click", () => {
@@ -50,11 +50,7 @@ clearRatesButton.addEventListener("click", () => {
 
 openJournalButton.addEventListener("click", () => {
     if (storageData) {
-        currencyRates(
-            Object.values(storageData.rates),
-            rateTextStorage,
-            storageData.date
-        );
+        currencyRates(Object.values(storageData.rates), rateTextStorage, storageData.date);
     }
     togglePopup(journal);
 });
