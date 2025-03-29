@@ -1,435 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Currency converter</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/normalize.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Currency converter</title>
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/normalize.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> </head>
-
-<body>
-  <header> </header>
-  <main>
-    <div class="main-wrap">
-      <div class="tabs">
-        <input class="button-one" type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
-        <label for="tab-btn-1" class="page-one">Конвертер</label>
-        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
-        <label for="tab-btn-2" class="page-two">Курсы</label>
-        <div id="content-1">
-          <div class="convert_item_one">
-            <input type="number" id="val" placeholder="введите сумму..." />
-            <select id="cur1">
-              <option>RUB</option>
-              <option>AUD</option>
-              <option>AZN</option>
-              <option>GBP</option>
-              <option>AMD</option>
-              <option>BYN</option>
-              <option>BGN</option>
-              <option>BRL</option>
-              <option>HUF</option>
-              <option>HKD</option>
-              <option>DKK</option>
-              <option>USD</option>
-              <option>EUR</option>
-              <option>INR</option>
-              <option>KZT</option>
-              <option>CAD</option>
-              <option>KGS</option>
-              <option>CNY</option>
-              <option>MDL</option>
-              <option>NOK</option>
-              <option>PLN</option>
-              <option>RON</option>
-              <option>XDR</option>
-              <option>SGD</option>
-              <option>TJS</option>
-              <option>TRY</option>
-              <option>TMT</option>
-              <option>UZS</option>
-              <option>UAH</option>
-              <option>CZK</option>
-              <option>SEK</option>
-              <option>CHF</option>
-              <option>ZAR</option>
-              <option>KRW</option>
-              <option>JPY</option>
-            </select>
-            <p class="convert-text"> Перевести в </p>
-            <select id="cur2">
-              <option>RUB</option>
-              <option>AUD</option>
-              <option>AZN</option>
-              <option>GBP</option>
-              <option>AMD</option>
-              <option>BYN</option>
-              <option>BGN</option>
-              <option>BRL</option>
-              <option>HUF</option>
-              <option>HKD</option>
-              <option>DKK</option>
-              <option>USD</option>
-              <option>EUR</option>
-              <option>INR</option>
-              <option>KZT</option>
-              <option>CAD</option>
-              <option>KGS</option>
-              <option>CNY</option>
-              <option>MDL</option>
-              <option>NOK</option>
-              <option>PLN</option>
-              <option>RON</option>
-              <option>XDR</option>
-              <option>SGD</option>
-              <option>TJS</option>
-              <option>TRY</option>
-              <option>TMT</option>
-              <option>UZS</option>
-              <option>UAH</option>
-              <option>CZK</option>
-              <option>SEK</option>
-              <option>CHF</option>
-              <option>ZAR</option>
-              <option>KRW</option>
-              <option>JPY</option>
-            </select>
-          </div>
-          <div class="convert_result">= 00,00</div>
+    <body>
+        <header></header>
+        <main>
+            <div class="main-wrap">
+                <div class="tabs">
+                    <input
+                        class="button-one"
+                        type="radio"
+                        name="tab-btn"
+                        id="tab-btn-1"
+                        value=""
+                        checked
+                    />
+                    <label for="tab-btn-1" class="page-one">Конвертер</label>
+                    <input
+                        type="radio"
+                        name="tab-btn"
+                        id="tab-btn-2"
+                        value=""
+                    />
+                    <label for="tab-btn-2" class="page-two">Курсы</label>
+                    <div id="content-1">
+                        <div class="convert_item_one">
+                            <input
+                                type="number"
+                                id="typed-amount"
+                                placeholder="введите сумму..."
+                            />
+                            <select id="currency1"></select>
+                            <p class="convert-text">Перевести в</p>
+                            <select id="currency2"></select>
+                        </div>
+                        <div class="convert-result">= 00,00</div>
+                    </div>
+                    <div id="content-2">
+                        <div id="rate-text">
+                            <div class="date-text">
+                                <button type="button" class="save-rates">
+                                    Сохранить
+                                </button>
+                                <button type="button" class="open-journal">
+                                    Журнал
+                                </button>
+                                <h2 id="main-date"></h2>
+                            </div>
+                            <div id="rate-currencies"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+        <div class="journal-info">
+            <div class="text-journal-info">
+                <button class="close-journal">Выйти</button>
+                <div class="journal-import">
+                    <div id="rate-text-storage">
+                        <div class="date-text-storage">
+                            <button type="button" class="clear-rates-storage">
+                                Очистить
+                            </button>
+                            <h2 id="main-date-storage"></h2>
+                        </div>
+                        <div id="rate-storage-currencies"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="content-2">
-          <div id="rate-text">
-            <div class="date-text">
-              <button type="button" class="save-rates"> Сохранить </button>
-              <button type="button" class="open-journal"> Журнал </button>
-              <h2 id="main-date"></h2> </div>
-            <div class="info-wrap">
-              <div class="currency-code"> AUD </div>
-              <div class="currency-name"> Австралийский доллар </div>
-              <div class="currency-rate" id="aud-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> AZN </div>
-              <div class="currency-name"> Азербайджанский манат </div>
-              <div class="currency-rate" id="azn-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> GBP </div>
-              <div class="currency-name"> Фунт стерлингов Соед. корол. </div>
-              <div class="currency-rate" id="gbp-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> AMD </div>
-              <div class="currency-name"> Армянский драм </div>
-              <div class="currency-rate" id="amd-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> BYN </div>
-              <div class="currency-name"> Белорусский рубль </div>
-              <div class="currency-rate" id="byn-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> BGN </div>
-              <div class="currency-name"> Болгарский лев </div>
-              <div class="currency-rate" id="bgn-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> BRL </div>
-              <div class="currency-name"> Бразильский реал </div>
-              <div class="currency-rate" id="brl-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> HUF </div>
-              <div class="currency-name"> Венгерский форинт </div>
-              <div class="currency-rate" id="huf-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> HKD </div>
-              <div class="currency-name"> Гонконгский доллар </div>
-              <div class="currency-rate" id="hkd-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> DKK </div>
-              <div class="currency-name"> Датская крона </div>
-              <div class="currency-rate" id="dkk-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> USD </div>
-              <div class="currency-name"> Доллар США </div>
-              <div class="currency-rate" id="usd-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> EUR </div>
-              <div class="currency-name"> Евро </div>
-              <div class="currency-rate" id="eur-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> INR </div>
-              <div class="currency-name"> Индийская рупия </div>
-              <div class="currency-rate" id="inr-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> KZT </div>
-              <div class="currency-name"> Казахстанский тенге </div>
-              <div class="currency-rate" id="kzt-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> CAD </div>
-              <div class="currency-name"> Канадский доллар </div>
-              <div class="currency-rate" id="cad-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> KGS </div>
-              <div class="currency-name"> Киргизский сом </div>
-              <div class="currency-rate" id="kgs-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> CNY </div>
-              <div class="currency-name"> Китайский юань </div>
-              <div class="currency-rate" id="cny-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> MDL </div>
-              <div class="currency-name"> Молдавский лей </div>
-              <div class="currency-rate" id="mdl-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> NOK </div>
-              <div class="currency-name"> Норвежская крона </div>
-              <div class="currency-rate" id="nok-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> PLN </div>
-              <div class="currency-name"> Польский злотый </div>
-              <div class="currency-rate" id="pln-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> RON </div>
-              <div class="currency-name"> Румынский лей </div>
-              <div class="currency-rate" id="ron-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> XDR </div>
-              <div class="currency-name"> СДР (спец. права заимствов.) </div>
-              <div class="currency-rate" id="xdr-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> SGD </div>
-              <div class="currency-name"> Сингапурский доллар </div>
-              <div class="currency-rate" id="sgd-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> TJS </div>
-              <div class="currency-name"> Таджикский сомони </div>
-              <div class="currency-rate" id="tjs-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> TRY </div>
-              <div class="currency-name"> Турецкая лира </div>
-              <div class="currency-rate" id="try-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> TMT </div>
-              <div class="currency-name"> Новый туркменский манат </div>
-              <div class="currency-rate" id="tmt-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> UZS </div>
-              <div class="currency-name"> Узбекский сум </div>
-              <div class="currency-rate" id="uzs-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> UAH </div>
-              <div class="currency-name"> Украинская гривна </div>
-              <div class="currency-rate" id="uah-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> CZK </div>
-              <div class="currency-name"> Чешская крона </div>
-              <div class="currency-rate" id="czk-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> SEK </div>
-              <div class="currency-name"> Шведская крона </div>
-              <div class="currency-rate" id="sek-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> CHF </div>
-              <div class="currency-name"> Швейцарский франк </div>
-              <div class="currency-rate" id="chf-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> ZAR </div>
-              <div class="currency-name"> Южноафриканский рэнд </div>
-              <div class="currency-rate" id="zar-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> KRW </div>
-              <div class="currency-name"> Вон Республики Корея </div>
-              <div class="currency-rate" id="krw-rate"> </div>
-            </div>
-            <div class="info-wrap">
-              <div class="currency-code"> JPY </div>
-              <div class="currency-name"> Японская иена </div>
-              <div class="currency-rate" id="jpy-rate"> </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer> </footer>
-  <div class="journal-info">
-    <div class="text-journal-info">
-      <button class="close-journal"> Выйти </button>
-      <div class="journal-import">
-        <div id="rate-text-storage">
-          <div class="date-text-storage">
-            <button type="button" class="clear-rates-storage"> Очистить </button>
-            <h2 id="main-date-storage"></h2> </div>
-          <div class="info-wrap">
-            <div class="currency-code"> AUD </div>
-            <div class="currency-rate" id="aud-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> AZN </div>
-            <div class="currency-rate" id="azn-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> GBP </div>
-            <div class="currency-rate" id="gbp-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> AMD </div>
-            <div class="currency-rate" id="amd-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> BYN </div>
-            <div class="currency-rate" id="byn-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> BGN </div>
-            <div class="currency-rate" id="bgn-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> BRL </div>
-            <div class="currency-rate" id="brl-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> HUF </div>
-            <div class="currency-rate" id="huf-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> HKD </div>
-            <div class="currency-rate" id="hkd-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> DKK </div>
-            <div class="currency-rate" id="dkk-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> USD </div>
-            <div class="currency-rate" id="usd-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> EUR </div>
-            <div class="currency-rate" id="eur-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> INR </div>
-            <div class="currency-rate" id="inr-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> KZT </div>
-            <div class="currency-rate" id="kzt-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> CAD </div>
-            <div class="currency-rate" id="cad-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> KGS </div>
-            <div class="currency-rate" id="kgs-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> CNY </div>
-            <div class="currency-rate" id="cny-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> MDL </div>
-            <div class="currency-rate" id="mdl-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> NOK </div>
-            <div class="currency-rate" id="nok-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> PLN </div>
-            <div class="currency-rate" id="pln-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> RON </div>
-            <div class="currency-rate" id="ron-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> XDR </div>
-            <div class="currency-rate" id="xdr-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> SGD </div>
-            <div class="currency-rate" id="sgd-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> TJS </div>
-            <div class="currency-rate" id="tjs-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> TRY </div>
-            <div class="currency-rate" id="try-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> TMT </div>
-            <div class="currency-rate" id="tmt-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> UZS </div>
-            <div class="currency-rate" id="uzs-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> UAH </div>
-            <div class="currency-rate" id="uah-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> CZK </div>
-            <div class="currency-rate" id="czk-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> SEK </div>
-            <div class="currency-rate" id="sek-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> CHF </div>
-            <div class="currency-rate" id="chf-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> ZAR </div>
-            <div class="currency-rate" id="zar-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> KRW </div>
-            <div class="currency-rate" id="krw-rate-storage"> </div>
-          </div>
-          <div class="info-wrap">
-            <div class="currency-code"> JPY </div>
-            <div class="currency-rate" id="jpy-rate-storage"> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="js/script.js"></script>
-</body>
-
+        <script type="module" src="js/main.js"></script>
+    </body>
 </html>
